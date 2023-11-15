@@ -1,0 +1,10 @@
+#!/bin/sh
+
+pandoc -s manuscripts/*.md \
+       -M js_version:$1 \
+       -M css_version:$2 \
+       --lua-filter pandoc/pdc-target-blank.lua \
+       --lua-filter=pandoc/remove-line-breaks.lua \
+       --lua-filter=pandoc/reference.lua \
+       --template=pandoc/template.html \
+       -o build${RELEASE}/index.html

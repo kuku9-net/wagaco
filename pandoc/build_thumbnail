@@ -1,0 +1,18 @@
+#!/bin/bash
+shopt -s extglob;
+
+(
+    cd `dirname $0`/../manuscripts;
+    for file in images/*/*.!(.xcf);do
+        echo ${file##*/};
+        ext=${file##*.};
+        outfile="thumbnails${file#images}";
+        echo "data:image/$ext;base64," > "$outfile"
+        if [ "${file##*/}" == "cocci.png" ]; then
+            size="x500"
+        else
+            size="x200"
+        fi
+        convert -resize $size "$file" $ext:- | base64 >> "$outfile"
+    done
+)
