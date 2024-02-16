@@ -1,0 +1,174 @@
+body{
+    background: $back-color;
+}
+.body-container {
+    max-width: $max-width;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+
+    height: 100vh;
+}
+.body-scrollable{
+    height: 100%;
+    overflow-y: auto;
+    .body {
+        background: $body-color;
+        margin: 2em auto 50vh;
+        @media only screen and (max-width: calc(#{$main-width} + 2em * 1)) {
+            margin-top: 0;
+        }
+        max-width: $main-width;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+}
+
+.sidebar-position{
+    .overlay {
+        position: fixed;
+        background: #000A;
+        display: none;
+        top:0; left:0;
+        width: 100vw;
+        height: 100svh;
+        z-index: 10;
+    }
+
+    @media only screen and (max-width: #{$limit-overwrap-width}) {
+        &.active {
+            .sidebar {
+                transform: translateX(-$sidebar-width);
+            }
+
+            .overlay {
+                display: block;
+            }
+        }
+    }
+    .sidebar{
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 20;
+        width: calc((100% - #{$main-width}) / 2);
+        height: 100svh;
+        transform: translateX(0);
+        @media only screen and (max-width: #{$limit-overwrap-width}) {
+            transition: all .3s ease;
+            right: -$sidebar-width;
+            left: auto;
+            padding: 0;
+            width: $sidebar-width;
+            .sidebar-content {
+                height: 100%;
+                margin-top: 0 !important;
+            }
+        }
+        .sidebar-content {
+            display:flex;
+            flex-direction: column;
+            background-color: $sidebar-color;
+            margin-top: 3em;
+            margin-left: auto;
+            margin-right: auto;
+
+            width: $sidebar-width;
+            padding: 1em;
+            .title {
+                font-size: 2.5em;
+                font-family: serif;
+            }
+
+            ul.menu {
+                flex: 1;
+                font-family: serif;
+
+                li {
+                    padding: 0.5em 0;
+                    &.current {
+                        font-weight: 700;
+                    }
+
+                }
+
+                .menu-on-this-page {
+                    font-family: san-serif;
+                    border: 1px solid $menu-on-page-border;
+                    margin: 0;
+                    padding: 0.5em;
+
+                    li {
+                        padding: 0;
+                        a{
+                            transition: all .5s ease;
+                            font-size: 0.85em;
+                            font-weight: 300;
+                            &:hover{
+                                font-weight: 500;
+                            }
+                            &.active {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+
+
+
+                }
+            }
+
+            .sidebar-footer {
+                margin-top: 2em;
+                .recommendation-message {
+                    color: #666;
+                    font-size: 0.8em;
+                    padding: 0 0 1em;
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+                }
+
+                .license {
+                    font-size: 0.5em;
+                    line-height: 1.1em;
+                    img {
+                        vertical-align: text-top;
+                        padding-right: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    .toggle-menu{
+        display: none;
+        @media only screen and (max-width: #{$limit-overwrap-width}) {
+            display: flex;
+        }
+        cursor: pointer;
+        border: 1px solid $menu-botton-color;
+        color: $menu-botton-color;
+        background-color: #fff;
+        svg {
+            fill: $menu-botton-color;
+            // fill:currentColor;でいいはずだけど、ダメだった
+        }
+        &:hover{
+            background-color: $menu-botton-color;
+            color:#fff;
+            svg {
+                fill: #fff;
+            }
+        }
+        padding: 3px 5px;
+        border-radius: 3px;
+
+        position: absolute;
+        top: 1em;
+        left: -3.5em;
+        width: 2em;
+        height: 2em;
+        transition: background-color .3s ease, transform .47s ease-in-out;
+    }
+}

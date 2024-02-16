@@ -1,0 +1,17 @@
+{{ .Scratch.Add "figure-count" 1 }}
+{{ $image := resources.Get (.Get "src") }}
+{{ $resizeOption := (.Get "size") }}
+{{ if eq $resizeOption ""}}
+  {{ $resizeOption := "resize x200" }}
+{{ end}}
+
+{{ $resized := $image.Process $resizeOption }}
+{{ $no := .Scratch.Get "figure-count" }}
+<figure class="figure figure-{{(.Get "place")}}">
+  {{ with $image }}
+    <a href="{{ .RelPermalink }}" data-lightbox data-gallery="gallery{{ $no }}">
+      <img src="data:{{ $resized.MediaType.Type }};base64,{{ $resized.Content | base64Encode }}" />
+    </a>
+  {{ end }}
+  <figcaption>{{(.Get "caption")}}</figcaption>
+</figure>

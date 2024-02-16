@@ -1,0 +1,5 @@
+{{ $options := (dict "targetPath" "/css/mystyle.css") }}
+{{ $style := resources.Get "scss/mystyle.scss" | resources.ToCSS }}
+<style>{{ $style.Content | safeCSS }} </style>
+
+

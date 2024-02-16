@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+<div class="body-container">
+  {{ partial "sidebar.html" . }}
+
+  <div class="body-scrollable">
+    <section class="body">
+      <div class="article-meta">
+        <h1>
+          <div class="chapter">第{{ .Params.chapter }}章</div>
+          <div class="title">{{ .Title | markdownify }}</div>
+        </h1>
+      </div>
+      <main>
+        {{ .Content }}
+      </main>
+      {{ partial "nav-next.html" .}}
+    </section>
+  </div>
+</div>
+{{ partial "footer.html" . }}
+

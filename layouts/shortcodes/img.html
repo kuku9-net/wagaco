@@ -1,0 +1,6 @@
+{{ $image := $.Page.Resources.Get (.Get "src") }}
+{{ with $image}}
+<div> {{ .RelPermalink }} </div>
+{{else}}
+<div> no! {{ .Get "src" }} </div>
+{{ end }}

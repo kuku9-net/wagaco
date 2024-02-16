@@ -1,0 +1,19 @@
+.footnote{
+    color: $font-color;
+    font-size: 0.8em;
+}
+
+.tippy-box a{
+    color: $link-color;
+}
+
+.tooltip-trigger{
+    cursor: pointer;
+    color: $link-color;
+}
+
+.footnote{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:block;
+}

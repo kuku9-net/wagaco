@@ -1,0 +1,24 @@
+{{ .Scratch.Add "figure-count" 1 }}
+{{ $image := resources.Get (.Get "src") }}
+{{ $resized := $image.Process "resize x200" }}
+{{ $no := .Scratch.Get "figure-count" }}
+
+<div class="reference">
+  <div class="reference-image">
+    <a href="{{ $image.RelPermalink }}"
+       data-lightbox
+       data-gallery="gallery{{ $no }}">
+      <img src="data:{{ $resized.MediaType.Type }};base64,{{ $resized.Content | base64Encode }}" />
+    </a>
+  </div>
+  <div class="reference-content">
+    <div class="reference-title">{{ (.Get "title") }}</div>
+    <div>
+      <span class="reference-year">{{ (.Get "year") }}</span>
+      <span class="reference-country">{{ (.Get "country") }}</span>
+    </div>
+    <div class="reference-author">{{ (.Get "author") }}</div>
+    <div class="reference-from">{{ (.Get "publisher") }}</div>
+    <div class="reference-comment">{{ (.Get "caption") }}</div>
+  </div>
+</div>

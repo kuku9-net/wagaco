@@ -1,0 +1,78 @@
+.figure {
+    color: #333;
+    margin: auto;
+    text-align: center;
+    --vs--figure-item-padding-inline: 0;
+
+    img {
+        height: unquote('max(20vh, 200px)');
+    }
+    display: table;
+
+    figcaption {
+        font-size: 0.8em;
+        display:table-caption;
+        caption-side: bottom;
+        text-align: left;
+        line-height: 1.1em;
+    }
+
+    &.figure-center img{
+        max-width: 100%;
+        height: 400px;
+    }
+
+    @media print, (min-width: $main-width){
+        &.figure-left {
+            float: left;
+            margin: 0 1.5em 0 0;
+        }
+        &.figure-right {
+            float: right;
+            margin: 0 0 0 1.5em;
+        }
+    }
+}
+
+.reference {
+    display: flex;
+    gap: 1em;
+    border: 1px #CCC solid;
+    padding: 1em;
+}
+
+@media print, (min-width: $main-width){
+    .reference {
+        margin-left: 1em;
+        float: right;
+        width: 50%;
+    }
+}
+
+.reference-image {
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: 35%;
+    img {
+        width: 100%;
+        max-height: unquote('max(20vh, 200px)');
+    }
+}
+.reference-content{
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 65%;
+    line-height: 1.25em;
+}
+.reference-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.reference-year, .reference-country, .reference-from, .reference-author  {
+    font-size: 0.8em;
+}
+
+.reference-comment {
+    margin-top: 0.5em;
+    font-size: 0.85em;
+}

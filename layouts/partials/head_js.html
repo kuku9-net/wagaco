@@ -1,0 +1,6 @@
+{{ $options := (dict "targetPath" "/js/main.js") }}
+{{ $js := resources.Get "js/main.js" | js.Build }}
+<script>
+{{ $js.Content | safeJS }}
+</script>
+

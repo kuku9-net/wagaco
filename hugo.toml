@@ -1,0 +1,21 @@
+baseURL = 'https://wagaco.kuku9.net/'
+languageCode = 'ja-JP'
+title = '我儘考'
+
+disableKinds = ["taxonomy", "taxonomyTerm", "sitemap", "RSS"]
+disableSitemap = true
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = false
+    startLevel = 1
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.cjk]
+        enable = true
+        eastAsianLineBreaks = true
+        eastAsianLineBreaksStyle = 'css3draft'
+
+    [markup.goldmark.renderer]
+      unsafe = true

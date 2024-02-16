@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    {{ if eq .Title .Site.Title }}
+    {{ partial "head_css_top.html" . }}
+    {{ else }}
+    {{ partial "head_css.html" . }}
+    {{ end }}
+  </head>
+
+  <body>
+

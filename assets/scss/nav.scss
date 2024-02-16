@@ -1,0 +1,17 @@
+.nav-next-links {
+    display: flex;
+    justify-content: space-between;
+    font-family: serif;
+
+    .nav-prev {
+        text-align: left;
+    }
+
+    .nav-next {
+        text-align: right;
+    }
+
+    .nav-label {
+        font-size: 0.7em;
+    }
+}

@@ -1,0 +1,20 @@
+<div class="nav-next-links">
+  {{ $pages := .Page.Parent.Pages.ByParam "chapter" }}
+  <div class="nav-prev">
+    {{ with $pages.Next . }}
+    <a href="{{ .RelPermalink }}"> 
+      <span class="nav-label">Previous:</span>
+      {{ .Title }}
+    </a>
+    {{ end }}
+  </div>
+
+  <div class="nav-next">
+    {{ with $pages.Prev . }}
+    <a href="{{ .RelPermalink }}">
+      <span class="nav-label">Next:</span>
+      {{ .Title }}
+    </a>
+    {{ end }}
+  </div>
+</div>
