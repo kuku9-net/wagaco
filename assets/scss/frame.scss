@@ -102,12 +102,12 @@ body{
                         a{
                             transition: all .5s ease;
                             font-size: 0.85em;
-                            font-weight: 300;
+                            font-weight: 200;
                             &:hover{
                                 font-weight: 500;
                             }
                             &.active {
-                                font-weight: 700;
+                                font-weight: 800;
                             }
                         }
                     }

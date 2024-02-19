@@ -1,37 +1,56 @@
 {{ partial "header.html" . }}
 
-<section class="cover">
-  <div class="container">
-    <div class="container-inner">
-      <div class="cover-label">
-        <div class="cover-title">我儘考</div>
-        <div class="cover-subtitle">名古屋シネマテークの場合</div>
+<div class="body-container">
+  {{ partial "sidebar.html" .}}
+
+  <div class="body-scrollable">
+    <section class="cover hide">
+      <div class="container">
+        <div class="container-inner">
+          <div class="cover-label">
+            <div class="cover-title">我儘考</div>
+            <div class="cover-subtitle">名古屋シネマテークの場合</div>
+          </div>
+
+
+          <div class="index">
+            <div class="index-label">目次</div>
+
+            <ul>
+              {{ $pages := .Pages }}
+              {{ range .Pages.ByParam "chapter" }}
+
+              <li>
+                <a href="#chapter={{ .Params.chapter }}">
+                  第{{ .Params.chapter }}章 {{ .Title | markdownify }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+
+          <div class="btn-next">
+            <a href="#chapter=1">読む</a>
+          </div>
+        </div>
       </div>
+    </section>
 
-
-      <div class="index">
-        <div class="index-label">目次</div>
-
-        <ul>
-          {{ $pages := .Pages }}
-          {{ range .Pages.ByParam "chapter" }}
-
-          <li>
-            <a href="{{ .RelPermalink }}">
-              第{{ .Params.chapter }}章 {{ .Title | markdownify }}
-            </a>
-          </li>
-          {{ end }}
-        </ul>
+    {{ range .Pages.ByParam "chapter" }}
+    <section id="chapter-{{ .Params.chapter }}" class="body hide">
+      <div class="article-meta">
+        <h1>
+          <div class="chapter">第{{ .Params.chapter }}章</div>
+          <div class="title">{{ .Title | markdownify }}</div>
+        </h1>
       </div>
-
-      <div class="btn-next">
-        <a href="/01">読む</a>
-      </div>
-
-    </div>
+      <main>
+        {{ .Content }}
+      </main>
+      {{ partial "nav-next.html" .}}
+    </section>
+    {{ end }}
   </div>
-</section>
-</body>
-</html>
+</div>
 
+{{ partial "footer.html" . }}

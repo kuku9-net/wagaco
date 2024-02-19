@@ -1,10 +1,11 @@
 {{ .Scratch.Add "figure-count" 1 }}
 {{ $image := resources.Get (.Get "src") }}
 {{ $resizeOption := (.Get "size") }}
-{{ if eq $resizeOption ""}}
-  {{ $resizeOption := "resize x200" }}
+{{ if (not $resizeOption)}}
+  {{ $resizeOption = "resize x200" }}
 {{ end}}
 
+{{ $options := (dict "targetPath" "/public/a.jpg") }}
 {{ $resized := $image.Process $resizeOption }}
 {{ $no := .Scratch.Get "figure-count" }}
 <figure class="figure figure-{{(.Get "place")}}">

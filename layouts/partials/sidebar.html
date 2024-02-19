@@ -6,21 +6,15 @@
       <hr />
       <ul class="menu">
         {{ $currentContent := . }}
-        {{ $pagesInCurrentDir := .Page.Parent.Pages.ByParam "chapter" }}
+        {{ $pagesInCurrentDir := .Pages.ByParam "chapter" }}
 
         {{ range $pagesInCurrentDir }}
-        {{ if eq $currentContent . }}
-        <li class="current"><a href="{{ .RelPermalink }}">
-          第{{ .Params.chapter }}章 {{ .Title }}
-        </a></li>
-        <div class="menu-on-this-page">
-          {{ .TableOfContents }}
-        </div>
-        {{ else }}
-        <li><a href="{{ .RelPermalink }}">
+        <li><a href="#chapter={{ .Params.chapter }}">
             第{{ .Params.chapter }}章 {{ .Title }}</a>
+          <div class="menu-on-this-page">
+            {{ .TableOfContents }}
+          </div>
         </li>
-        {{ end }}
         {{ end }}
       </ul>
       <div class="sidebar-footer">
