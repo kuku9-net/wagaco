@@ -12,8 +12,21 @@
     container.classList.toggle('active');
   }
 
-  container.querySelectorAll('a').forEach(el => {
-    el.addEventListener('click', () => isNarrow() && toggleSidebar());
+  function scrollTo(selector){
+    const el = document.querySelector(selector);
+    el?.scrollIntoView({behavior: "smooth"});
+  }
+
+  function onClickAnchor(ev){
+    if(isNarrow()){
+      toggleSidebar();
+    }
+    scrollTo(ev.currentTarget.getAttribute('href'));
+    ev.preventDefault();
+  }
+
+  container.querySelectorAll('.menu-on-this-page a').forEach(el => {
+    el.addEventListener('click', onClickAnchor);
   });
 
 
@@ -24,6 +37,7 @@
   const sections = Array.from(document.querySelectorAll('h1,h2'));
   const scrollable = document.querySelector(".body-scrollable");
   const offsetY = 18;
+
   scrollable.addEventListener('scroll', function() {
     const scrollY = scrollable.scrollTop + offsetY;
 
