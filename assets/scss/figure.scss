@@ -1,12 +1,28 @@
+.figure, .reference-image {
+    img {
+        max-height: unquote('max(20vh, 200px)');
+        &:hover {
+	    opacity: .8;
+	    animation: flash 1s;
+        }
+    }
+}
+@keyframes flash {
+    0% {
+	opacity: .6;
+    }
+    100% {
+	opacity: .8;
+    }
+}
+
+
 .figure {
     color: #333;
     margin: auto;
     text-align: center;
     --vs--figure-item-padding-inline: 0;
 
-    img {
-        height: unquote('max(20vh, 200px)');
-    }
     display: table;
 
     figcaption {
@@ -53,11 +69,8 @@
     flex-grow: 0;
     flex-shrink: 1;
     width: 35%;
-    img {
-        width: 100%;
-        max-height: unquote('max(20vh, 200px)');
-    }
 }
+
 .reference-content{
     flex-grow: 1;
     flex-shrink: 0;
