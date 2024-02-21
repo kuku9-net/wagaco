@@ -1,5 +1,14 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    {{ $style := resources.Get "scss/mystyle_single.scss" | resources.ToCSS }}
+    <style>{{ $style.Content | safeCSS }} </style>
+  </head>
 
+  <body>
 <div class="body-container">
   {{ partial "sidebar.html" . }}
 
@@ -18,5 +27,13 @@
     </section>
   </div>
 </div>
-{{ partial "footer.html" . }}
+
+{{ $js := resources.Get "js/main-single.js" | js.Build }}
+<script>
+{{ $js.Content | safeJS }}
+</script>
+
+  </body>
+</html>
+
 
