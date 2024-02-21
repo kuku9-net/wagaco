@@ -221,14 +221,24 @@ body {
     .sidebar-position .toggle-menu:hover svg {
       fill: #fff; }
 
+.figure img, .reference-image img {
+  max-height: max(20vh, 200px); }
+  .figure img:hover, .reference-image img:hover {
+    opacity: .8;
+    animation: flash 1s; }
+
+@keyframes flash {
+  0% {
+    opacity: .6; }
+  100% {
+    opacity: .8; } }
+
 .figure {
   color: #333;
   margin: auto;
   text-align: center;
   --vs--figure-item-padding-inline: 0;
   display: table; }
-  .figure img {
-    height: max(20vh, 200px); }
   .figure figcaption {
     font-size: 0.8em;
     display: table-caption;
@@ -261,9 +271,6 @@ body {
   flex-grow: 0;
   flex-shrink: 1;
   width: 35%; }
-  .reference-image img {
-    width: 100%;
-    max-height: max(20vh, 200px); }
 
 .reference-content {
   flex-grow: 1;
@@ -1577,13 +1584,13 @@ a {
 <div class="graphs">
   <canvas class="plot-income"></canvas>
 </div>
-<div class="graph-data-source">一般社団法人日本映画製作者連盟 より<span class="footnote"><http://www.eiren.org/toukei/data.html></span></div>
+<div class="graph-data-source"><a href="http://www.eiren.org/toukei/data.html">一般社団法人日本映画製作者連盟</a>より</div>
 <p>一般社団法人日本映画製作者連盟のデータによると、2000年以降の映画の興行収入は増減を繰り返しながらも概ね横ばいで、やはりコロナ禍が始まった2020年の落ち込みが目立ちます。しかしコロナ前に注目してみると、2013年ごろから上昇傾向で、2019年が過去最高となっています。業界が一番盛り上がっていた時期もシネマテークの経営は芳しくなかったようです。<br>
 また日本映画製作者連盟は全映画館のスクリーンの総数の推移も集計しています。スクリーンの数は全体では上昇傾向ですが、シネコンが持っているスクリーン数の増加によって増えているようです。それ以外の映画館のスクリーンはむしろ減少しています。2015年頃までほぼ単調に減少し、それ以降は微減が続いているようです。</p>
 <div class="graphs">
   <canvas class="plot-top100"></canvas>
 </div>
-<div class="graph-data-source">興行通信社 歴代ランキングより<span class="footnote"><https://www.kogyotsushin.com/archives/alltime/></span></div>
+<div class="graph-data-source"><a href="https://www.kogyotsushin.com/archives/alltime">興行通信社 歴代ランキング</a>より</div>
 <p>次に興行通信社の歴代の興行収入TOP100のデータから公開日と興行収入の分布をプロットしました。歴代興行収入一位の400億円超えは2020年10月に公開された&quot;劇場版「鬼滅の刃」無限列車編&quot;です。鬼滅の刃だけでなく、コロナ禍以降も断続的にヒット作が出ています。ヒット作とそれ以外のギャップが広がっているようです。</p>
 <h2 id="書籍小さな映画館から">書籍「小さな映画館から」</h2>
 <p>2019年1月にシネマテーク支配人を勤めていた平野勇治さんが亡くなられました。平野さんはシネマテークの前身である「ナゴヤシネアスト」からのスタッフを続けられた方です。平野さんが寄稿した文章をまとめて「小さな映画館から」という本として出版されています。この本では、上映される映画の紹介や映画に対する考え、また映画館の苦境が記されています。</p>
@@ -1625,41 +1632,15 @@ a {
 </blockquote>
 <p>平野さんは経営上のバランスについて苦悩を続けていましたが、それでも損得を超えて観客に見せたいものがあったようです。<br>
 毎年年末には自主製作映画フェスティバルを催しており、いつも以上に自由な表現の映画を選んで上映していました。さらにフェスティバルの期間中はプログラムが上映された後に夜遅くまで「何でも持って来い!」という企画があり、ここでは審査なしで誰の作品でも持ち込んだ作品は上映されます。この企画から後の映画監督も排出されています。</p>
-<p>シネマテークで上映された映画は観衆に歩み寄らない作品も多く、観衆の側が能動的に見て、自身で考えることがしばしば要求されます。
-
-
-
-
-<div class="reference">
-  <div class="reference-image">
-    <a href="/images/01/Rags%20and%20Tatters.jpg"
-       data-lightbox
-       data-gallery="gallery1">
-      <img src="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAMgAjAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APSLBEumKiTaVXPNactkqID5hLE4P5A&#43;nvXO2ly0Cjb1xya04rwtgsTj0qxWJZbdiMDkVmTQMpPFbaXMTKOCaoRXtnqtnHd27loZBlWx17VSYI5WeMtMwAxmhHVdoYdOvvW8dMRg53r1&#43;WsW&#43;jtrJh9ouY4gW2jzGC5PpzVXKJUmXzC&#43;BmrCFJBkIQT1wKhOmXEcKzoMjGRjB49asW8kZRUZGjYHk5JzSAelrvyCu0e4qK&#43;0kJF5qnj6Ve89AfkJJGOtSyxG9tcB2Xac4xxQFzm4ygIyvI46U2UI7ZUYA6Yq&#43;&#43;nzPIRHGGHUHHWm3FhJBHhsA9wO1O6FZsqRYzz2qysiqCGOBVZYZD/FgetMCl2AGSaLisa1tZWVzEXm1AQnnChM/iSSKpNpjNdmESoVUAs4KkAcA85xxnnnsaqS2U6/NgHHPFWrVrqL50kdCF&#43;8hIOD7ip1CxQWdZbCWK6sLeC5SYpHJFIWZ1XHzEZwN2T&#43;VVCik1sS7p3eSRfMkY5Lkc5qnJEC/Lc/ShAbUPAA61fiHApkNsoPXJ9KvRWpJHBqLlCLGJI2RgdrAg4OOK44m90/wG76Yo32F9IGj/vIs7fL/L8K9DgsmJHHFci6FNA8U2SDLG7ulA9Cyhwf/HqV9RkVvp91qckdxezsdOuVjuPsrAq0DBQQuRy3zcn6CodbEeoQyzNbRmzijLvPeJtUgd1QfOw/FQfU1rP4kstP0xby7nhhSZQ4L5ycjoB1P4VBo2uWk9tqmprcLqNvLKqw28ETebnaoKENgcnkfUnPPFNBci0aS3u4or2W/nulK5iVfkiH/AFwOP8AazitYpavNGxTavVgOataaZZ4Y1vtDjsIlTam24RxGOykDGPoM02eC385vIDhVb7vUYpoRCttH9oRLd9&#43;5csAOhrVNlHLBiMgOy8kHFZWuv8A2foLajbLIiB0WYqpZkRmUMwAGeASfwre0iG3m023uEDlZUEi712nB5GR2pOQyCOALFsTBbuRyBXI63rMFprsFtLfWCWkIxeiRyJVLfcIA/yByccV16q&#43;h&#43;GXuNSkSV7O3Z5DCuAyqCRgHvgD8a5rWfE3hGCzTUFmsLua8MaMqqHfZuBJdRyAoycHuMVNwLE&#43;lKBvX/V4yCD1FUbo2ejaSdUuy6252neqFiATxxXRaJcQ&#43;INJvp3kV7J5pIoZlBUPFgDPIHfcM&#43;1ZOv6lDY&#43;DL9dOvzevbIqPckCUKWcKWOBtJAJOO2OlVzCJntIwkbxMGjddwIHUHoagMUMKFMgnvXP&#43;C/EFxqyahYz3ZvvszK0Vy6bWdGz1HsR&#43;tbT28jt8u7Gegpp3EZ15M5LLGAqg9u9U92OuK1JrFwCW6ms9rd1ONtO4jr7dO4AH4VpQqSBmqdsp2jPJ71pRDArG4y1EuAK891jWLbwr4p1hdUtbprHUAk9vJDHuUtsCOp98qK9DU4Fc5qZkvAjzrGqq4YqGwflYEZP1A/KqjqM8tsdQ0dLVJJdMv9YvIYVTJt/kUKuMDOdoHrgk8mo7TUE/s&#43;6isLS8jvrmZZ1SztTtgdcbQM49OfXJr1hZbeSLbctvJ4KkZA&#43;lV7/R4LmzeK1OyR0ITLcNx64OPyNUM5vRm8c6rCVu5LLTYyMPKyb3PbhclQfr&#43;VdTr2l3Vn4ZupdOW4mvViUIYxvc8gMQO7YyfrTdS068stEe4SDz2gaKf7PCSxKpIrMoJ5Y4U9uT2qt/wsvT73Za6BY3upX7jCwLFsCH/bY9B78iocuwGVo2sao3gPxDb6qt8s9lGdkl1GUmMLg4JHqMNzXe3cEl9p0L6XfeQRiSJ0AZJFwcA8H5SD29BVLSNGufsV62uTJdXeojFyiDEaJggRr/ALIBPPckmuaX4W&#43;QWhtPE&#43;rW9iScWySHAHpwcfpU3Cx0Ws&#43;IdF0GzXTriU3U7p5MdkrGaabIwFIOTz6tWXo2h6D4ctII10bzdUNuqXIhiMxDMvKlj8oz74yPaq9z4P0/wnpP9o6Lp73V9aypO7ytvllQH5wD2OCTwByKoQ/EW0vF&#43;yeHtJvry9kyRF5YRQx6l2yfxP607jsL4i8QXOh&#43;IRa3mjC&#43;0B7eOb7LHEG&#43;zFeCcdCM9jx0xg1Zh&#43;Jun3K&#43;Vpmj6ndvjCxQ2wwPrzwK0NB0S/08XWp6xcefqd3gylAdkSjO2NB6DJ&#43;tTGO/v9TtriGWW0tIN29JU5uM4/hzkAY6kZ9vUuPlK&#43;jW99c3NzqmrWFtZzyqscUER3MiAk/Ow4JJPbpitZkiUcsPp0qyLYuM54pr2qD73NO4mjLuJUA4RazSqknMea2JoUXOFFUWiGe1FxWRdt5FAPI/Or0chONu3H1rnY9Ts0gZ/tETMqk4DdcDpV3TdXsruMEzCJ8ZKucfqahlqBvDcVwccivPvFc93ZTxlJSi/P5ipHvOApbPJHp&#43;Vdm1xE8TBbmMccHcP8a5K7eK9ulNyttK6f6tmAZhnuD2yPSrgwlGxnatqFzo1rYyxlJTKwaaPyzIQirlsY/AZ9xVqbWbtZTFCVRYIftDHyt5YZ5wMjgDk9&#43;R&#43;OjpehWdyq&#43;dZW728SlYi0K/Ip6qPb2rpv7L02aCGJrG1eGH/VI0KkJ9BjilOoloCg2RTajeQa7BA7KtkzLGCqhsuVJ2sd25TwMfLjHfnhPEWqSaVBAtp5cc1xLguyZCjB&#43;Y8gY3FAST0JPbNXvsFs14Lw20BugMCYxjeB6bsZpbqyt76MRXlrBcxg5CzRhxn1waw9oh8oW16&#43;o6UlzbkRPLGSm8btp98HkZ9DzWXHqF/b6LqN9dXSS&#43;T5yxiODBBjd19TnOF49frWzb28NtCsMMMcUaDCpGoVQPYCoW0zT2tmt2sbYwM29ojEu0t1yRjGfep9oh2MNdT1K58N/bY51iuoCyzhoGG5lJHCsQVzw3PY1ZuF1O2vbGJL6AC4YrIfs3UhWYn73fAFaP9naf5U0RsbYxztulTyVxI3XLDHJ&#43;tTSW9vLLDLJBE8kOTE7ICUz12nt&#43;FUpoLMyBfXsnil7Mn/Q0I58sY5QnbndnOeemMA1Bpmo3txr81nLgwq02CYwowrBRtO7nrzxxx&#43;Oz/Z9gL37b9itvtf8Az38pfM6Y&#43;9jPTimrY2MbBks7dWEhlBWJQQ54LdOp9etUpByso6Nf3lzLPFesBII0lVVVdu1i3KsrHcpxxnB46c1oyuAOTUMFna2e/wCyW0FvvOX8qMLuPqcdajmlKAknoKpC5SCd1YEgjFZ5dc9TSRzl7UMccZ9&#43;9VndmYn&#43;lUhONmcLBIGcnBwcfnV2FxvTOTnFZdtJIJJGPKtwDx&#43;dXba7e2mEyKjMD8pYfd4I7VZVy3cXCC4bZlE4wDxU8d/IqIiuw446YNY99qtxNN5gwWCncAfc9vxrLfUpZco7Hnt6UWGn3O/03xILNI4ZI3aNXyxU9scjFa48aWaNj7PNt/h6V5faXrNNEhYlc4610MyIYFdU&#43;deuD1qJQXUpM7&#43;y8Uafdj5pDAxJwsoxkeuelJN4s06Fyq&#43;bL6FFGD&#43;Zrzb95ktngHgE9qn3EHtiodGI9D0qDxDYzWjTmVY2AJ8t2AY49KzX8YhZCfso8ody3OK4bfOQo5xv9ccU5pXXdlif97mpVCIrI9AtfFNnPGzzHyiW&#43;VcE8YHt65q8mrWUqB1uogD2ZgD&#43;RrzTMuAF24xzk9KkMwRQAQxz19KPYx6D0PTFuopRmORHHqrA1E12onWI9Spbr6Yrzn7SykMZW3H356VJ/aFzPtBmchQVGfT61XJYeh6At1HMpMbhgDg4NZd/qaRO0XBP8Vci1zdRITDO6Mf7pIqqLjLO120jygclW5z&#43;NNIVjpXuYxpsohPQHjPTNIZCcHkcVy8tw4jzuHI5ANVBfSFQS7Dj&#43;8aaE1cr2sDpEBkgcktngd6kYxQIuZVO4/SqkQZsmT7o/iLD&#43;tXYC1wxLOjRZ/jGTn8a0uQiWGNC4Pm5Rjn5R0qR7OCVifswmyfveWc8e4qNvKtsI3lsHPZBnFRlrSKRj9oEZH98/wAsfSkUTrb2dvLzZIrKeMFgQaqPr7RMV&#43;xR4IwAd3FXBcbf9U3mKR8zKcYP1NRNdGRgS4RN2Tk/ljA/rSQXHwaql4CslusZYcMnrUsjRvjcRtxzzz&#43;lMWYSsI9w2kfeIP8AMVEzxRfMAyqDjAB57ZoAuJtyB5sbHGcdMD60jRLIQBOofGcEY/DrTnuDMuEEO1hj3x9aijRA2JC5wAQFYjNMSv1Jbmb7Lb/vY3B4UhhjNZx1FQCqJ94cnpVxne4LoG3sOdu4nI&#43;mKoSQ2nmHLKrf3Vzx&#43;tCsNs07QLPHu8x88ZBA4/HNWYzGWdoyHU4H0Pes22eNWVIgxLdgDzx9TUwuJMtiM46en41LGmWlBkV1GODj3NUpZGEryOsjPjrtwKI5iHP7v5uu08/j1/pUi6jLCFAGM5BXHUUDbMua5Kk8Hmq3OT3q/dJbtIZGQAfe2YII/HNVo1XbnkZ/u8imK4iOkcZ2zBnB4LP8v6UpuJPJwrRll67DkH09KoHypv3UzG2ZxjKocDjrnI/SpJLOW3s8R6r50SkZjkRW4z0zyaqyMrl6KUSvieBZuuzLYx&#43;NSvbRuSrpEq4OMHOM9veso3Krkxsi&#43;6ripIZJrdAI57ZExkrHEuc/kKCtDTFtJ5eQZZDj7yRMy/pSNNBCGKLclwessajI9uTWebpkIxdPliSMoCM&#43;46d6mtpLuUZaWSbqpRFCjp14qeZDsyZZ5Cm&#43;QTZ/j&#43;XjH&#43;7jj6VKsJe2/dqcfeBeMYx7jGf8ioXM9uyMyTovTLnjnj0qOfy5f9YyyHsdoBHtxTvcRfigt5ghkeOHdkAyDbnHX6U&#43;eFbdB5eoWzJ/zyiYEn&#43;v5VknZs2K&#43;B1yORSFBkNh37gqR&#43;uaQF4XIdgEZj2wIwSf1p4mUx&#43;VM&#43;5dwYAoARwQefxH5VmyFoNkiLLnI44P6CnqJp0DsNjHjDKQKGMnjk8m4xl2BGBIFGFP/fWf0qyjAsCJix77lP8AjWQZ7izd/vkHnKtxTV1e6tikzK8sTfKY2kyOO&#43;KLDNyWUWw80SRhtuSNpJxSw3aNnOxkIyVPylR9T/SsqTW0mT5bONAfUtu/nVrf9rtYo4pWL7AXUtkDkA/Tgn8qdhPzLNxJHETIgEZxkhJAfzxWU11Ep5DtnnIT/wCtUUN2zBzkZB2kEZ3e/P8AnipWvYLcIsg5ZdwxGDx/kUhEC20auzNIWL8szPnGPSnz2kVvbORI8obkhpB69BTIxdGMbtGn6dr1f8K0DcOApfR0QkY&#43;aWM/0qhFSO0tzbqwdd/eIvz9cgGpXtUFtI/kNKwHy7H3fXsKWeEXJZvJEBbr/pSkYxjgAcU2KyWFRi5Tg55mzmlewbjU1G7I2iWWJuOM5I9qljvL2R2P2x04/jcKB&#43;Jq1HK/mKXnt9meRvUflTb2&#43;g3CJ0jlQnhkcf5FAyoJp7iTyrjUQ0YIYl5wVaopvLNwyhgADtGD1P5VbisbSQblvoFBP8QGR9easjT7RVydQtyQc8Hn&#43;dK47GV5LZ9PUEH/AAqC6uZ4JdkensykEoUVn6dj0xWw/wBmEjE3bs3qEJ/rSKtrJnN23H95SP60cwrFeW11GNo2FlbsOCSl0CR3zgVHcT3TMsayx72IxufcOvfFXBFabw4ufmA67sECq89rY3E8chYiaMjbKBgkdSD60XuPYuWtjatbn7dKxkz/AAcDH44xTn07RvLY&#43;ZLntgqf/ZqpPIz74pyJoipwQCOefx6Vmrp0Nugnihckc4JP&#43;NCBmgLe2jfKxqQD/F3FXvtljFErNAgLDAIQZxXMO&#43;oi4VmhRIV&#43;&#43;FcNjPTODkGtWI3PkqhgiKkcByDn9admTe5ZkvNOA2rbIpPOWyP61R&#43;3Rn7m8r2woIpLm3kLAOiKVGMBscVXjglQFVkCDPTzQKLAbMZnM/nfabbzGGMsyjj6Zp95BNqBQT3cSlOgjlQD&#43;RrDl1FrG3Lxxq8qcbc8H86kivYrqGBHjRZn6qOev/6qdnuK6LsugtFNHuuWBfoC4OR&#43;A6U&#43;WE2ecIrqoyXc4JP0qs8LCUJ9oO5VHO4/pzTprZMJGdQhclgSjuuV/M0DJor9Cdos45G7bRzTtRUyqtvHanccMzoMgH06VJBp8UUgaPVrNWxjgoTUhhjxldZtCe4ASkBmRadcw25iVnUli2Sme/pmpDaXQKYdvl&#43;98g&#43;b9eKttYw3bgvfwzSAdAVzj8DUB0jghgCd3VEJoGU77T5b2FYmYgBsnnGfyNWEgPlbJRIWxjcpXj35zVxrS4hKbWGQcLlCQfatRNBVLdLifUo4xtBYNF8oP54pWC5naPlHk8gFnQgEuyqW456celbqPfyxlordWKn5v3q/41jLo0EiTxWuswxs&#43;CSEz3/3vanavZvp3gq7V9QEoBjEsiDacF1U9z/D70cik9RczWw3QNe1XWlmYafEgGTGPMwcZxzmrOt2k0uktLPaKtxCDJvVgeMcj6d653QnsNP&#43;IdtFbu4hdShQtgZZSQPpwPfOK9CuI3Z3RmtioPGeDim6ai7hzt6Hmul3oj1GcDBMrKASAcce9blxqkdkwjmMCE8qXkClh681jaloE&#43;nao4tm3x53jB&#43;6Owq&#43;8P2mGNbmAB0P3mjViBjkYINN2EiC61ezuFBZ4D2BEgJFUsQudxyM&#43;4qWa2tVYRpCCe7GBVz&#43;IpP7MluAJYvK2nsG6H8qWgyomm3d3MQ0cmwdWK/oP8atwWNzbTForCRio2qzgnj1x&#43;JrjPC1mft1wCMjy&#43;Mj3FdO2nksCoAHfiiU&#43;V2CMOZXNB9O1CSTf9lmBxjgGqVz4ZlurhppLGYucdGwDSHTwVOQPyrgbfTnfPWnTlzCnHlO4g8KT2esR3Iim2Rvny1jJ/Dd/Wqd14OleSWZ5XiUsW5h/wDr1zP9lsPU1oaLaeVrFu&#43;3kEj8wa11Rmb2iaFLYTyThpJEKbdyxH1Hv7VrxR3Tlh5Tg9jsNQGFizfMx54GTUXlPIJF3OMDH3j6Vg6ivsbKnpuaVtbXiXcUpilcIwPyxnnFaWqPd6nYz2i2s8aS8cxE4Gc15BDDdTBvnb8zTpLK52EmRzgZ61tymVz0C38Nz21xb3BSVlglWQgRHJwQcdaNTgvINK1mJYJmbUJo2RNhGQHZsY7nJUVzfhe2me0uN7MTvGMn2reFrL/eP51k6vK7GkafMrmZo&#43;6LxbYPqTFZVmQyc42soGM/iK6HWYbnUtTub5xckO21FjUjAGBnvx/jUni3TrRPCl5dxW4Nz5a/vI1&#43;bOQMkj/PFePg3BOPOf8A76Nbz7GKZ7FChZI1fTpiY4tgfdIM/UA8mm4mi3mFLhSxyAWlbafbOa8mMNyQP3r/APfRrvobVzaQHJPyL1&#43;lYTfKax946Kazl2jM05cj5iFFUGtrmFtsc8gHXpWT9lZc&#43;Yc5PXHQVUns18zk9qjmTKasVdDj1S2vpGnjCIVx079e1dIJrvjC/pVGG8vZmxHbuzDnAGeKs&#43;bq4U/6FNlep2n/AD2raVNSd2ZxqOKsh8k175bgRZOPSuSt4Ndh3BrFv&#43;&#43;K6nfrLjItJh/wA0/zNWKf8ek4GOoRqcIKOwpTctzmca4eliefVP8A69TWY1mO9hdrIKyuGDGPKj6&#43;1dAJtVGAbSU56fI3NL52rNkCzm4/2G4/SrJE/tC4kO9rZt5OW2wsBk9eMcUpu5tj4t2BIP8AyzbNIsurDGLOb/vljS7tXdQ620pQ8ghGway9iu5p7V9jkoE1eBSTpsnPpExqRm1dkYf2ZJyOP3TV1Pmatjd9mlwTgfIeaN&#43;rHJ&#43;yygDgnYev5VqZmX4fN/bWsv2m0eNmfIHltyK1BfTq4Bgbnv5bYFKW1ZX2fZZifZGqK4XUpF8t7Sb5uPuEZ4P&#43;B/KspUk3e5pGq0rWOhbVbSUW1tKQ8N5CyMCec45H5ZFeUaxo&#43;oaZq8lpHAZ0B3RsilsqemfQ&#43;1dKmhXO8ldOmUqfmwjdux4qzb2N7AZJfs8jMW&#43;YlSef84raTujFKxyqQa2yKP7LlwP&#43;mTV2NtLdixh8yDa4jXcCp4OKlZtVU820qk8DKHn/ADioZP7TC/NaSAHr&#43;6P&#43;FZyhzdTSMuUgmu5ycmI4HHCGqF3JetIpihQrt7q3X8KuPFqcm5hay7QM7hGcfWmpNcBRlsfjUqkhuo2T2OozWMxkhZN&#43;MHcO2f8A61bNv4h1a8&#43;0Q&#43;bar54LSNJhc5PqTjvWCu/G4Y9jinkuOMLjHpitbGZ12n/abSfCeI4Pm2EtIQ&#43;057ZfHfPHpV23vrhoGml1&#43;wjKs7bDCpJP03dx/UVwmJcnKZz3HFbmneI0tYBDcaZBcOoVQxAXgdO3P1pNDNLToWgKuviS3&#43;eLG2YBgo4IGC/B4H5Vdt5ZBPLF/wAJBp6r5gO9o12n5RyPn9yPwrLm8TW0k4c6JbKAwO1WAAABGPu&#43;&#43;aa3iSNrl5P7HhCsAFRSBjGf9n3pWYF&#43;3uJHR0Gt2ITz2kBkiUHJ&#43;Yn73rxU2RCsluniCxMUKoE2xL82c9Pn7c9fWslvENuywJ/Y0SpG5dxnl8jofl6d6mgub/Vb65fT7e1tk&#43;VjHJGp29BkEj2yadhF6K5nhiit4tdsikEWEyidlxj73XBxRa30mJVXXLSMBmJDRLjI28jLc54/I&#43;9WbW11FIJHk0u1mZCrs3mAZGBwAF9v1qrd22p/2Yvl6faRgoh3lwxHvgrjnFIZYt9QuGvpm/4SCyQuqOXKJ8xw3Qb&#43;o7/UVFcXEhUSrrtrJLDukRVjUDcq4A&#43;90IY/rWJa&#43;I5bQuLvS4bmRcqSyqvoOgHsfzqWDxRBCuG0GKQEkjc4zyScfdosBsWd5dyLNPJrenw3LkB12oc5yOu7nAUH8ahb/S4N0muWUZMwkwEUHcCOfvewrDsPEbW3/HxY29zgbUJRVwMY7Dk&#43;9XJPFVvJIGTRIAAwfAcYPOcH5aLMDQgvGvTBenW7WKRWG0SQhdpIKnILdhn88069ubtobsNrtlKsI8wKI1/ekJ0GGz3x9a5DUL2W92MkQj2ggDO4nJz1x9aomRgADuz3osBrHxPqZt5ICV2vF5JIXkrjHXtWYJdowynJ56UgYEHO7B5BxTtyZOXGffimhDlYgZGOD2pROA24MDg8nimJ1k/3qrp/qn&#43;h/lTAsGTnKHPoPajLqS21T6564qBPvx/Qf0qy3/LT6CkAolMiZHGDncegpyFmAG48Hgf0qvH/AMeb/X&#43;tWI/vt9aYEu/B2nGc9M1ehntotTTy3ZLY43ZJGRz6Vmv/AMfRpP8AloP91f5GjcDVur6P7c4hubmO2yMGPJOcDPBI75pLe7txKqzXV95CoBlTgk5543dMfngevGc/Rv8AeP8AWk/h/OklpYDQnfR2BMQvcb/vNgk/561QcRl28s/KCdu7rj3HrxSD/UN/v/0pg/1h&#43;jf&#43;zUwH/Shty4Kj6&#43;nWiPqf901I/Rvp/WgCsdzEE53d8GoWBZuCasr96oV6N9KAEGTIPvYHoeQKixKSduSPep0&#43;&#43;3&#43;4acnSkB//2Q==" />
-    </a>
-  </div>
-  <div class="reference-content">
-    <div class="reference-title">敷物と掛布</div>
-    <div>
-      <span class="reference-year">2013</span>
-      <span class="reference-country">エジプト</span>
-    </div>
-    <div class="reference-author">アフマド・アブダッラー</div>
-    <div class="reference-from"> </div>
-    <div class="reference-comment">アラブの春でのエジプト政府崩壊直後の混乱をひとりの男の目線から見せるドキュメンタリーテイストのフィクション</div>
-  </div>
-</div>
-</p>
-<p>一例をあげると、イスラーム映画祭という企画でエジプト映画「敷物と掛布」を見ました。この映画は2011年アラブの春でエジプト政府が崩壊したところから始まります。この崩壊によって監獄から出た一人の男のその後の行動を追うことでストーリーは進みます。映像で魅せる映画で最後まで見入ってしまいましたが、何が起きているのかよくわかりませんでした。次々と何かが展開していくのですが、ナレーションはなく、男も寡黙で説明が全然ないからです。後で調べたところ、現地にいた監督でさえ、全貌はよく分からないし、混乱した現地で体験した感覚をただ描くべきと考えたそうです。本やニュースで大枠を知って、わかった気になることはできますが、現地で体験した感覚的な部分は映画でしか伝えられないことであると納得しました。このような明快さのない作品はシネコンで上映されることはないですし、そもそもエジプトの映画自体なかなか上映されないと思います。<br>
-その他にもシネマテークでは、様々な国の様々なマイノリティの視点で語る映画<span class="footnote">
+<p>その他にもシネマテークでは、様々な国の様々なマイノリティの視点で語る映画<span class="footnote">
 アルジェリアの50年代-60年代の植民地支配への抵抗を描いた「アルジェの戦い」、
 ルーマニアのスラムの中で子どもたちだけで生きる「トトとふたりの姉」、
 タイの娼婦と戦争と日本をつなぐ物語を描く「バンコクナイツ」など
 </span>
 や上映時間が異常に長い映画<span class="footnote">
-上映時間7時間18分の「サタンタンゴ」、上映時間9時間11分の「鉄西区」など
+上映時間7時間18分の「サタンタンゴ」、上映時間9時間11分の「鉄西区」など、
 </span>
-などメインストリームからはじき出されるような映画を上映していました。</p>
+などメインストリームからはじき出されるような映画を上映していました。シネマテークで上映された映画は観衆に歩み寄らない作品も多く、観衆の側が能動的に見て、自身で考えることがしばしば要求されます。</p>
 <h2 id="シネマテークのトイレ">シネマテークのトイレ</h2>
 
 
