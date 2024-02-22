@@ -2,7 +2,7 @@
   {{ $pages := .Page.Parent.Pages.ByParam "chapter" }}
   <div class="nav-prev">
     {{ with $pages.Next . }}
-    <a href="{{ .RelPermalink }}"> 
+    <a href="#chapter={{ .Params.chapter }}">
       <span class="nav-label">Previous:</span>
       {{ .Title }}
     </a>
@@ -11,7 +11,7 @@
 
   <div class="nav-next">
     {{ with $pages.Prev . }}
-    <a href="{{ .RelPermalink }}">
+    <a href="#chapter={{ .Params.chapter }}">
       <span class="nav-label">Next:</span>
       {{ .Title }}
     </a>
