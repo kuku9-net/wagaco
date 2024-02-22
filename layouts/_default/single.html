@@ -16,7 +16,11 @@
     <section class="body">
       <div class="article-meta">
         <h1>
-          <div class="chapter">第{{ .Params.chapter }}章</div>
+          <div class="chapter">
+                  {{ i18n "chapter_pre" }}
+                  {{ .Params.chapter }}
+                  {{ i18n "chapter_suf" }}
+          </div>
           <div class="title">{{ .Title | markdownify }}</div>
         </h1>
       </div>

@@ -1,12 +1,26 @@
 import {Chart} from 'chart.js'
-
+import { languageTable } from './i18n.js';
 import top100Json from './top100.json';
+const labels = languageTable({
+  ja: {
+    "kimetsu": ['劇場版「鬼滅の刃」', '2020/10/16公開 404億円'],
+    "released": '公開日',
+    "income": '興行収入(億円)',
+    "title": '興行収入TOP100の公開日 (2023.8.27現在)',
+  },
+  en: {
+    "kimetsu": ['Demon Slayer The Movie', '2020/10/16 40.4 ¥bn'],
+    "released": 'release date',
+    "income": 'income (¥0.1bn)',
+    "title": "The release date of the top 100 box office as of August 27, 2023"
+  }
+});
 
 const annotation1 = {
   type: 'label',
   backgroundColor: 'rgba(245, 245, 245, 0.5)',
   borderColor: 'rgba(80, 80, 245, 0.5)',
-  content: ['劇場版「鬼滅の刃」', '2020/10/16公開 404億円'],
+  content: labels['kimetsu'],
   color: '#444',
   font: { size: 12 },
   padding: {x: 12, y: 6},
@@ -35,7 +49,7 @@ const config = {
                 ticks: {callback: (v) => new Date(v).getFullYear()},
                 title: {
                     display: true,
-                    text: '公開日'
+                    text: labels["released"]
                 },
                 min: new Date(1975, 1,1),
                 max: new Date(2024, 1,1)
@@ -43,7 +57,7 @@ const config = {
             y: {
                 title: {
                     display: true,
-                    text: '興行収入(億円)'
+                    text: labels["income"]
                 }
             }
         },
@@ -68,7 +82,7 @@ const config = {
             },
             title: {
                 display: true,
-                text: '興行収入TOP100の公開日 (2023.8.27現在)',
+                text: labels["title"],
             }
         }
     }

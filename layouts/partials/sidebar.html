@@ -2,7 +2,9 @@
   <div class="overlay"></div>
   <nav class="sidebar">
     <div class="sidebar-content">
-      <div class="title">我儘考</div>
+      <div class="title">
+        {{ .Site.Title }}{{ partial "footnote-wagamama.html" . }}
+      </div>
       <hr />
       <ul class="menu">
         {{ $currentContent := . }}
@@ -10,7 +12,8 @@
 
         {{ range $pagesInCurrentDir }}
         <li><a href="#chapter={{ .Params.chapter }}">
-            第{{ .Params.chapter }}章 {{ .Title }}</a>
+            {{ i18n "chapter_pre2" }}{{ .Params.chapter }}{{ i18n "chapter_suf2" }}
+            {{ .Title }}</a>
           <div class="menu-on-this-page">
             {{ .TableOfContents }}
           </div>
@@ -19,7 +22,11 @@
       </ul>
       <div class="sidebar-footer">
         <div class="recommendation-message">
-          ※このサイトは<a href="https://www.mozilla.org/en-US/firefox/browsers/">Firefox</a>での閲覧を推奨します
+          ※{{ i18n "recommend-browser-pre" }}
+          <a href="https://www.mozilla.org/en-US/firefox/browsers/">
+            Firefox
+          </a>
+          {{ i18n "recommend-browser-suf" }}
         </div>
         <div class="mailto active">
           mail to: <a href="mailto:wagaco@kuku9.net">wagaco@kuku9.net</a>

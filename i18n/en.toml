@@ -1,0 +1,9 @@
+index = "Index"
+chapter_pre = "Chapter. "
+chapter_suf = " "
+chapter_pre2 = " "
+chapter_suf2 = "."
+read = "Read it"
+
+recommend-browser-pre = "This site is best viewed with "
+recommend-browser-suf = "."

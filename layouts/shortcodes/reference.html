@@ -1,5 +1,13 @@
 {{ .Scratch.Add "figure-count" 1 }}
-{{ $image := resources.Get (.Get "src") }}
+{{ $path := (.Get "src") }}
+{{ $image := resources.Get (printf "%s/%s_%s%s" (path.Dir $path)
+                                               (path.BaseName $path)
+                                               (.Site.LanguageCode)
+                                               (path.Ext $path)) }}
+{{ if (not $image) }}
+  {{ $image = resources.Get $path }}
+{{ end }}
+
 {{ $resized := $image.Process "resize x200" }}
 {{ $no := .Scratch.Get "figure-count" }}
 

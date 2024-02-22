@@ -2,8 +2,28 @@ baseURL = 'https://wagaco.kuku9.net/'
 languageCode = 'ja-JP'
 title = '我儘考'
 
-disableKinds = ["taxonomy", "taxonomyTerm", "sitemap", "RSS"]
+disableKinds = ["taxonomy", "sitemap", "RSS"]
 disableSitemap = true
+
+defaultContentLanguage = "ja"
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.ja]
+    languageCode = "ja"
+    title = "我儘考"
+    [languages.ja.params]
+        subtitle = "名古屋シネマテークの場合"
+
+  [languages.en]
+    languageCode = "en"
+    title = "wagamama"
+    [languages.en.params]
+        subtitle = "in case of Nagoya Cinematheque"
+    [languages.en.markup.goldmark.extensions.cjk]
+        enable = false
+    [languages.en.markup.goldmark.renderer]
+      unsafe = true
 
 [markup]
   [markup.tableOfContents]

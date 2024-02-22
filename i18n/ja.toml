@@ -1,0 +1,9 @@
+index = "目次"
+chapter_pre = "第"
+chapter_suf = "章"
+chapter_pre2 = "第"
+chapter_suf2 = "章"
+read = "読む"
+
+recommend-browser-pre = "このサイトは"
+recommend-browser-suf = "での閲覧を推奨します"
