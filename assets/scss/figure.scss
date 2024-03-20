@@ -36,6 +36,7 @@
     &.figure-center img{
         max-width: 100%;
         height: 400px;
+        max-height: none;
     }
 
     @media print, (min-width: $main-width){
