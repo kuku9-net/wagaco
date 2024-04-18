@@ -68,10 +68,13 @@ function onPopState(){
 }
 
 window.addEventListener("popstate", onPopState);
-onPopState();
 
 export function scrollToAnchor(selector){
   const hash = "#chapter=" + currentPage?.chapter
     + "&anchor=" + selector;
   document.location.hash = hash;
+}
+
+export function startRouting(){
+    onPopState();
 }

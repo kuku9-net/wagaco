@@ -1,4 +1,5 @@
-import {scrollToAnchor} from './routing';
+import {scrollToAnchor, startRouting} from './routing';
+export {startRouting} from './routing';
 
 const container = document.querySelector('.sidebar-position');
 const btn = document.querySelector('.toggle-menu');
