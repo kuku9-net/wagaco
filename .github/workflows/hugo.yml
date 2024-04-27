@@ -1,0 +1,55 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.124.1
+
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+
+      - name: Checkout page repo
+        uses: actions/checkout@v4
+        with:
+          repository: kuku9-net/mzo
+          token: ${{ steps.generate_token.outputs.token }}
+          path: page
+
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: hugo --minify
+
+      - name: Commit Build Artifacts
+        run: |
+          git config --global user.email "my@kuku9.net"
+          git config --global user.name "GitHub Actions"
+          cd page
+          cp ../public/index.html wagaco/
+          cp ../public/en/index.html wagaco/en/
+          git add .
+          git commit -m "update wagaco" || true
+          git push origin main
