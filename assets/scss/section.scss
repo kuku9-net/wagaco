@@ -47,7 +47,9 @@ section{
         padding: 0 1.5em;
         border-left: 4px solid $quote-color;
         font-style: italic;
-
+        p {
+            text-indent: unset;
+        }
         cite {
             display: block;
             text-align: right;
